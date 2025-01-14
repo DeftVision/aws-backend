@@ -1,10 +1,8 @@
-const mongoose = require("mongoose");
-const userSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    password: String,
-    email: String,
-})
+const express = require('express');
+const router = express.Router();
+const {getUsers} = require('../controllers/userController');
 
-const userModel = mongoose.model("User", userSchema);
-module.exports = userModel;
+router.get( '/', getUsers)
+router.get('/login', login);
+
+module.exports = router;
